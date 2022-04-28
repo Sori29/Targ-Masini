@@ -1,0 +1,3 @@
+1;Audi;A6 2.0;2006;Negru;Aer conditionat, navigatie, cutie manuala;
+2;BMW;M135i xDrive 2.4;2015;Albastru;Aer conditionat, navigatie, sistem android, cutie automata;
+3;Dacia;Duster;2019;negru;aer_conditionat, ABS, ESP, sistem_audio_radio, mufa_auxiliara, ;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.IO;
 using Librarie;
 using NivelStocareDate;
 
@@ -19,7 +20,9 @@ namespace EvidentaStudenti
             {
                 numeFisier = args[0];
             }
-            AdministareMasini_FisierTxt adminMasini = new AdministareMasini_FisierTxt(numeFisier);
+            string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
+            AdministareMasini_FisierTxt adminMasini = new AdministareMasini_FisierTxt(caleCompletaFisier);
             Masina masinaNoua = new Masina();
             int nrMasini = 0;
             adminMasini.GetMasini(out nrMasini);
