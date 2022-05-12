@@ -60,7 +60,7 @@ namespace UI_MainMenu
             Masina[] masini = adminMasini.GetMasini(out int nrMasini);
 
             //setare proprietati
-            this.Size = new Size(1200, 400);
+            this.Size = new Size(1200, 135);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 100);
             this.Font = new Font("Arial", 9, FontStyle.Bold);
@@ -191,28 +191,51 @@ namespace UI_MainMenu
             txtOptiuni.Location = new System.Drawing.Point(POZITIE_START_X + 8 * DIMENSIUNE_PAS_X, DIMENSIUNE_PAS_Y);
             this.Controls.Add(txtOptiuni);
 
+            lbleroare = new Label();
+            lbleroare.Width = 4 * LATIME_CONTROL;
+            lbleroare.Top = 2 * DIMENSIUNE_PAS_Y;
+            lbleroare.Left = 50;
+            lbleroare.ForeColor = Color.Red;
+
 
         }
+        
         private void Form1_Load(object sender, EventArgs e)
-        {
-            AfiseazaMasini();
+        { 
+
         }
 
-        private void OnButtonClicked(object sender, EventArgs e)
-        {
-            AfiseazaMasini();
-        }
-        private void OnButton1Clicked(object sender, EventArgs e)
+        private void OnButtonClicked(object sender, EventArgs e) // refresh
         {
             Masina[] masini = adminMasini.GetMasini(out int nrMasini);
-            string firma = txtNumeFirma.Text;
-            string model = txtNumeModel.Text;
-            int an = Int32.Parse(txtAn.Text);
-            string culoare = txtCuloare.Text;
-            string optiuni = txtOptiuni.Text;
-
-            Masina masina = new Masina(nrMasini+1,firma,model,an,culoare,optiuni);
-            adminMasini.AddMasina(masina);
+            this.Size = new Size(1400, 65*nrMasini);
+            AfiseazaMasini();
+        }
+        private void OnButton1Clicked(object sender, EventArgs e) //adaugare
+        {
+            Masina[] masini = adminMasini.GetMasini(out int nrMasini);
+            if (txtNumeFirma.Text == String.Empty || txtNumeModel.Text == string.Empty || txtAn.Text == string.Empty || txtCuloare.Text == string.Empty || txtOptiuni.Text == string.Empty)
+            {
+                lbleroare.Text = "O casuta completata este goala, introduceti din nou";
+                this.Controls.Add(lbleroare);
+            }
+            else if(txtAn.Text.Any(char.IsLetter))
+            {
+                lbleroare.Text = "Anul completat este invalid, introduceti din nou";
+                this.Controls.Add(lbleroare);
+            }
+            else
+            {
+                lbleroare.Text = String.Empty;
+                this.Controls.Add(lbleroare);
+                string firma = txtNumeFirma.Text;
+                string model = txtNumeModel.Text;
+                int an = Int32.Parse(txtAn.Text);
+                string culoare = txtCuloare.Text;
+                string optiuni = txtOptiuni.Text;
+                Masina masina = new Masina(nrMasini + 1, firma, model, an, culoare, optiuni);
+                adminMasini.AddMasina(masina);
+            }
         }
         private void AfiseazaMasini()
         {
