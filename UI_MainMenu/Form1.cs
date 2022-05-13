@@ -11,6 +11,7 @@ using System.Configuration;
 using System.IO;
 using Librarie;
 using NivelStocareDate;
+using static Librarie.Enumerari;
 
 namespace UI_MainMenu
 {

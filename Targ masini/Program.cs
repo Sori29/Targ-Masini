@@ -3,6 +3,7 @@ using System.Configuration;
 using System.IO;
 using Librarie;
 using NivelStocareDate;
+using static Librarie.Enumerari;
 
 namespace EvidentaStudenti
 {
@@ -117,7 +118,7 @@ namespace EvidentaStudenti
             int nr = Int32.Parse(Console.ReadLine());
             string culoare = string.Empty;
             if (nr >= 1 && nr < 9)
-                culoare = culoare + (Masina.Culoare)nr;
+                culoare = culoare + (Enumerari.Culoare)nr;
             else
             {
                 while (nr < 0 || nr > 8)
@@ -125,7 +126,7 @@ namespace EvidentaStudenti
                     Console.WriteLine("Optiune inexistenta, introduceti alta valoare (1-8):");
                     nr = Int32.Parse(Console.ReadLine());
                 }
-                culoare = culoare + (Masina.Culoare)nr;
+                culoare = culoare + (Enumerari.Culoare)nr;
             }
             Console.WriteLine("Introduceti dotari:" +
                 "\n1. Aer Conditionat" +
@@ -153,7 +154,7 @@ namespace EvidentaStudenti
                 if(optiune >= 17 || optiune <1)
                     contor++;
                 else 
-                    optiuni = optiuni + (Masina.Optiuni)optiune+", ";
+                    optiuni = optiuni + (Enumerari.Culoare)optiune+", ";
             }
             Masina masina = new Masina(0, nume, model, an, culoare, optiuni);
             return masina;
