@@ -4,6 +4,8 @@ using System.IO;
 using Librarie;
 using NivelStocareDate;
 using static Librarie.Enumerari;
+using System.Globalization;
+using System.Threading;
 
 namespace EvidentaStudenti
 {
@@ -27,7 +29,8 @@ namespace EvidentaStudenti
             Masina masinaNoua = new Masina();
             int nrMasini = 0;
             adminMasini.GetMasini(out nrMasini);
-
+            CultureInfo originalCulture = Thread.CurrentThread.CurrentCulture;
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("ro-RO");
             string optiune;
             do
             {
@@ -74,14 +77,18 @@ namespace EvidentaStudenti
 
         public static void AfisareMasina(Masina masina)
         {
-
-            string infoStudent = string.Format("<-------------Masina cu id-ul #{0}------------->\nFirma: {1}\tModel: {2}\tAn fabricatie: {3}\tCuloare: {4}\tOptiuni: {5}",
+            
+            string infoStudent = string.Format("<-------------Masina cu id-ul #{0}------------->\nFirma: {1}\tModel: {2}\tAn fabricatie: {3}\tCuloare: {4}\tOptiuni: {5}\nNume vanzator: {6}\tNume cumparator: {7}\tData tranzactie: {8}\tPret: {9}",
                    masina.IDMasina,
                    masina.numeFirma ?? " NECUNOSCUT ",
                    masina.model ?? " NECUNOSCUT ",
                    masina.an,
                    masina.culoare ?? " NECUNOSCUT ",
-                   masina.optiuni ?? " NECUNOSCUT ");
+                   masina.optiuni ?? " NECUNOSCUT ",
+                   masina.numeVanzator ?? "NECUNOSCUT",
+                   masina.numeCumparator ?? "NECUNOSCUT",
+                   masina.dataTranzactie.Value.ToShortDateString(),
+                   masina.pret + " RON");
 
             Console.WriteLine(infoStudent);
         }
@@ -104,7 +111,7 @@ namespace EvidentaStudenti
             string model = Console.ReadLine();
 
             Console.WriteLine("Introduceti an fabricatie:");
-            int an = Int32.Parse(Console.ReadLine());
+            uint an = UInt32.Parse(Console.ReadLine());
 
             Console.WriteLine("Introduceti culoare:" +
                 "\n1. Alb" +
@@ -154,9 +161,32 @@ namespace EvidentaStudenti
                 if(optiune >= 17 || optiune <1)
                     contor++;
                 else 
-                    optiuni = optiuni + (Enumerari.Culoare)optiune+", ";
+                    optiuni = optiuni + (Enumerari.Optiuni)optiune+", ";
             }
-            Masina masina = new Masina(0, nume, model, an, culoare, optiuni);
+            Console.WriteLine("Introduceti nume vanzator:"); string numeVanzator = Console.ReadLine();
+            Console.WriteLine("\nIntroduceti nume cumparator:"); string numeCumparator = Console.ReadLine();
+            int[] data_tranzactie=new int[2];
+            int OK = 1;
+            Console.WriteLine("Introduceti data tranzactie in formatul (zz/mm/yyyy):");
+            string data_citita = Console.ReadLine();
+            DateTime datatranzactie;
+            string pattern = "dd-MM-yyyy";
+            while(true)
+            {
+                if (DateTime.TryParseExact(data_citita,pattern,null,DateTimeStyles.None,out datatranzactie))
+                {
+                    Console.WriteLine("Data citita este invalida, introduceti din nou");
+                    data_citita = Console.ReadLine();
+                }
+                else
+                {
+                    datatranzactie = Convert.ToDateTime(data_citita);
+                    break;
+                }
+            }
+            Console.WriteLine("Introduceti pret (RON):"); uint pret=Convert.ToUInt32(Console.ReadLine());
+
+            Masina masina = new Masina(0, nume, model, an, culoare, optiuni,numeVanzator,numeCumparator,datatranzactie,pret);
             return masina;
         }
     }

@@ -155,7 +155,14 @@ namespace UI_MainMenu
                 i++;
             }
         }
-
+        private void Golire_casutetxt()
+        {
+            txtNumeFirma.Text = String.Empty;
+            txtNumeModel.Text = String.Empty;
+            txtAn.Text = String.Empty;
+            txtCuloare.Text = String.Empty;
+            txtOptiuni.Text = String.Empty;
+        }
         private void btnAdauga_Click(object sender, EventArgs e)
         {
             Masina[] masini = adminMasini.GetMasini(out int nrMasini);
@@ -167,10 +174,12 @@ namespace UI_MainMenu
             else if (txtAn.Text.Any(char.IsLetter))
             {
                 lbleroare.Text = "Anul completat este invalid, introduceti din nou";
+                lblnAn.ForeColor = Color.Red;
                 this.Controls.Add(lbleroare);
             }
             else
             {
+                lblnAn.ForeColor = Color.LimeGreen;
                 lbleroare.Text = String.Empty;
                 this.Controls.Add(lbleroare);
                 string firma = txtNumeFirma.Text;
@@ -179,6 +188,7 @@ namespace UI_MainMenu
                 string culoare = txtCuloare.Text;
                 string optiuni = txtOptiuni.Text;
                 Masina masina = new Masina(nrMasini + 1, firma, model, an, culoare, optiuni);
+                Golire_casutetxt();
                 adminMasini.AddMasina(masina);
             }
         }

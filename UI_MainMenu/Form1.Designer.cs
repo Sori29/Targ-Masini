@@ -50,7 +50,6 @@
             this.lblnNumeFirma.Size = new System.Drawing.Size(32, 13);
             this.lblnNumeFirma.TabIndex = 0;
             this.lblnNumeFirma.Text = "Firma";
-            
             // 
             // lblnNumeModel
             // 

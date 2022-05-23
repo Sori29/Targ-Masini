@@ -1,7 +1,1 @@
-1;Audi;A6 2.0;2006;Negru;Aer conditionat, navigatie, cutie manuala;
-2;BMW;M135i xDrive 2.4;2015;Albastru;Aer conditionat, navigatie, sistem android, cutie automata;
-3;Dacia;Duster;2019;negru;aer_conditionat, ABS, ESP, sistem_audio_radio, mufa_auxiliara, ;
-4;Audi;Q7;2019;Negru;Aer conditionat, ABS, EBS;
-5;Test;Test;2000;Test;Test;
-6;Test;Test;2000;Test;Test;
-7;test;test;2002;test;test;
+1;Audi;A6 2.0 TDI;2006;negru;aer_conditionat, navigatie, cutie_manuala, ABS, Airbaguri, avetizor_centura_de_siguranta, mufa_auxiliara, ;Lungu Sorin;Marius Catalin;12.05.2009 00:00:00;5000;
