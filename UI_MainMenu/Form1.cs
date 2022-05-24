@@ -23,6 +23,7 @@ namespace UI_MainMenu
         DataTable TabelDate;
         private int rowIndex = 0;
         private string culoare_selectata;
+        private string cautare_selectata;
         private Label lbleroare;
         private const int LATIME_CONTROL = 100;
         private const int OFFSET = 500;
@@ -209,6 +210,52 @@ namespace UI_MainMenu
             dateMasini.Update();
             dateMasini.Refresh();
             //dateMasini.DataSource = TabelDate;
+        }
+
+        private void btnCautare_Click(object sender, EventArgs e)
+        {
+            lblCautare.Visible = true;
+            cmbCautare.Visible = true;
+        }
+
+        private void cmbCautare_SelectionChangesCommitted(object sender, EventArgs e)
+        {
+            ComboBox c = (ComboBox)sender;
+            cautare_selectata = c.GetItemText(c.SelectedItem);
+            txtCautare.Visible = true;
+            btnInapoi.Visible = true;
+        }
+
+        private void txtCautare_TextChanged(object sender, EventArgs e)
+        {
+            string valuare_cautata=txtCautare.Text;
+            int poz = TabelDate.Columns.IndexOf(cautare_selectata);
+            try
+            {
+                var re = from row in TabelDate.AsEnumerable()
+                         where row[poz].ToString().Contains(valuare_cautata)
+                         select row;
+                if(re.Count() == 0)
+                {
+                    MessageBox.Show("Fara rezultate");
+                }
+                else
+                {
+                    dateMasini.DataSource=re.CopyToDataTable();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnInapoi_Click(object sender, EventArgs e)
+        {
+            lblCautare.Visible = false;
+            cmbCautare.Visible = false;
+            txtCautare.Visible = false;
+            btnInapoi.Visible = false;
         }
     }
 }

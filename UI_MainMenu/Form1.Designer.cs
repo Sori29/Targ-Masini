@@ -52,6 +52,11 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.stergeRandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnCautare = new System.Windows.Forms.Button();
+            this.lblCautare = new System.Windows.Forms.Label();
+            this.cmbCautare = new System.Windows.Forms.ComboBox();
+            this.txtCautare = new System.Windows.Forms.TextBox();
+            this.btnInapoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dateMasini)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -277,12 +282,78 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // btnCautare
+            // 
+            this.btnCautare.Location = new System.Drawing.Point(311, 437);
+            this.btnCautare.Name = "btnCautare";
+            this.btnCautare.Size = new System.Drawing.Size(75, 23);
+            this.btnCautare.TabIndex = 37;
+            this.btnCautare.Text = "Cautare";
+            this.btnCautare.UseVisualStyleBackColor = true;
+            this.btnCautare.Click += new System.EventHandler(this.btnCautare_Click);
+            // 
+            // lblCautare
+            // 
+            this.lblCautare.AutoSize = true;
+            this.lblCautare.Location = new System.Drawing.Point(450, 402);
+            this.lblCautare.Name = "lblCautare";
+            this.lblCautare.Size = new System.Drawing.Size(90, 13);
+            this.lblCautare.TabIndex = 38;
+            this.lblCautare.Text = "Selectati dupa ce";
+            this.lblCautare.Visible = false;
+            // 
+            // cmbCautare
+            // 
+            this.cmbCautare.FormattingEnabled = true;
+            this.cmbCautare.Items.AddRange(new object[] {
+            "ID",
+            "Firma",
+            "Model",
+            "An",
+            "Culoare",
+            "Vanzator",
+            "Cumparator",
+            "Data tranzactie",
+            "Pret",
+            "Optiuni"});
+            this.cmbCautare.Location = new System.Drawing.Point(558, 399);
+            this.cmbCautare.Name = "cmbCautare";
+            this.cmbCautare.Size = new System.Drawing.Size(121, 21);
+            this.cmbCautare.TabIndex = 39;
+            this.cmbCautare.Visible = false;
+            this.cmbCautare.SelectionChangeCommitted += new System.EventHandler(this.cmbCautare_SelectionChangesCommitted);
+            // 
+            // txtCautare
+            // 
+            this.txtCautare.Location = new System.Drawing.Point(730, 399);
+            this.txtCautare.Name = "txtCautare";
+            this.txtCautare.Size = new System.Drawing.Size(157, 20);
+            this.txtCautare.TabIndex = 40;
+            this.txtCautare.Visible = false;
+            this.txtCautare.TextChanged += new System.EventHandler(this.txtCautare_TextChanged);
+            // 
+            // btnInapoi
+            // 
+            this.btnInapoi.Location = new System.Drawing.Point(923, 397);
+            this.btnInapoi.Name = "btnInapoi";
+            this.btnInapoi.Size = new System.Drawing.Size(75, 23);
+            this.btnInapoi.TabIndex = 41;
+            this.btnInapoi.Text = "Inapoi";
+            this.btnInapoi.UseVisualStyleBackColor = true;
+            this.btnInapoi.Visible = false;
+            this.btnInapoi.Click += new System.EventHandler(this.btnInapoi_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1050, 482);
+            this.Controls.Add(this.btnInapoi);
+            this.Controls.Add(this.txtCautare);
+            this.Controls.Add(this.cmbCautare);
+            this.Controls.Add(this.lblCautare);
+            this.Controls.Add(this.btnCautare);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lstOptiuni);
             this.Controls.Add(this.dateMasini);
@@ -339,6 +410,11 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem stergeRandToolStripMenuItem;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnCautare;
+        private System.Windows.Forms.Label lblCautare;
+        private System.Windows.Forms.ComboBox cmbCautare;
+        private System.Windows.Forms.TextBox txtCautare;
+        private System.Windows.Forms.Button btnInapoi;
     }
 }
 

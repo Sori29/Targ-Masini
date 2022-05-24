@@ -1,1 +1,2 @@
 1;Audi;A6 2.0 TDI;2006;Negru;Aer conditionat,Navigatie,Cutie manuala,ABS,ESP,Airbaguri,Avertizor centura,Sistem audio,Tapiterie piele,Geamuri electrice,;Lungu Sorin;Todosi Vasile;13/07/2012 11:41:16 PM;5500;
+2;Skoda;Octavia 2.0 TDI;2010;Verde;Aer conditionat,Navigatie,Cutie manuala,ABS,Airbaguri,Avertizor centura,Sistem audio,Mufa auxiliara,Tapiterie piele,Geamuri electrice,;Cojocari Diana-Maria;Lungu Sorin;28/02/2021 1:16:48 AM;4000;
