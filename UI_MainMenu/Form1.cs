@@ -20,7 +20,7 @@ namespace UI_MainMenu
         static string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
         static string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
         AdministareMasini_FisierTxt adminMasini = new AdministareMasini_FisierTxt(caleCompletaFisier);
-
+        DataTable TabelDate;
         private int rowIndex = 0;
         private string culoare_selectata;
         private Label lbleroare;
@@ -39,6 +39,8 @@ namespace UI_MainMenu
             this.Font = new Font("Arial", 9, FontStyle.Bold);
             this.ForeColor = Color.LimeGreen;
             this.Text = "Targ masini";
+            //initializare coloane tabel de date
+            initializare_coloane();
 
             lbleroare = new Label();
             lbleroare.Width = 4 * LATIME_CONTROL;
@@ -46,6 +48,21 @@ namespace UI_MainMenu
             lbleroare.Left = 70;
             lbleroare.ForeColor = Color.Red;
 
+        }
+
+        private void initializare_coloane()
+        {
+            TabelDate = new DataTable();
+            TabelDate.Columns.Add("ID", typeof(int));
+            TabelDate.Columns.Add("Firma", typeof(string));
+            TabelDate.Columns.Add("Model", typeof(string));
+            TabelDate.Columns.Add("An", typeof(uint));
+            TabelDate.Columns.Add("Culoare", typeof(string));
+            TabelDate.Columns.Add("Vanzator", typeof(string));
+            TabelDate.Columns.Add("Cumparator", typeof(string));
+            TabelDate.Columns.Add("Data tranzactie", typeof(string));
+            TabelDate.Columns.Add("Pret", typeof(uint));
+            TabelDate.Columns.Add("Optiuni", typeof(string));
         }
         private void ClearCheckedBoxes()
         {
@@ -56,10 +73,8 @@ namespace UI_MainMenu
         }
         private void AdaugareRand(Masina masina)
         {
-            string[] rand = { masina.IDMasina.ToString(), masina.numeFirma , masina.model, masina.an.ToString(),
-                                          masina.culoare, masina.numeVanzator, masina.numeCumparator, masina.dataTranzactie.Value.ToShortTimeString(),
-                                          masina.pret.ToString(), masina.optiuni };
-            dateMasini.Rows.Add(rand);
+            TabelDate.Rows.Add(masina.IDMasina, masina.numeFirma, masina.model, masina.an, masina.culoare, masina.numeVanzator,
+                               masina.numeCumparator, masina.dataTranzactie.Value.ToShortDateString(), masina.pret, masina.optiuni);
         }
         private void AfiseazaMasini()
         {
@@ -73,6 +88,7 @@ namespace UI_MainMenu
                     AdaugareRand(masina);   
                 }
             }
+            dateMasini.DataSource = TabelDate;
         }
         private void Golire_casutetxt()
         {
@@ -119,6 +135,7 @@ namespace UI_MainMenu
                 Masina masina = new Masina(nrMasini + 1, firma, model, an, culoare_selectata, optiuni,nume_vanzator,nume_cumparator,data,pret);
                 Golire_casutetxt();
                 AdaugareRand(masina);
+                dateMasini.DataSource = TabelDate;
                 adminMasini.AddMasina(masina);
             }
         }
@@ -160,7 +177,8 @@ namespace UI_MainMenu
             Masina[] masini = adminMasini.GetMasini(out int nrMasini);
             if (!this.dateMasini.Rows[this.rowIndex].IsNewRow)
             {
-                this.dateMasini.Rows.RemoveAt(this.rowIndex);
+                TabelDate.Rows.RemoveAt(this.rowIndex);
+                TabelDate.Reset();
                 var file = new List<string>(System.IO.File.ReadAllLines(caleCompletaFisier));
                 file.RemoveAt(rowIndex);
                 if (rowIndex == nrMasini - 1)
@@ -179,14 +197,18 @@ namespace UI_MainMenu
                                     }
                                     File.WriteAllLines(caleCompletaFisier, file.ToArray());
                 }
-                
+                initializare_coloane();
+                AfiseazaMasini();
             }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            initializare_coloane();
+            AfiseazaMasini();
             dateMasini.Update();
             dateMasini.Refresh();
+            //dateMasini.DataSource = TabelDate;
         }
     }
 }

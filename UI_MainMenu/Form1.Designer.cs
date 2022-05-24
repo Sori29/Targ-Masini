@@ -48,16 +48,6 @@
             this.cmbCuloare = new System.Windows.Forms.ComboBox();
             this.txtPret = new System.Windows.Forms.TextBox();
             this.dateMasini = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Firma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.An = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Culoare = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vanzator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cumparator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_tranzactie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pret = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Optiuni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lstOptiuni = new System.Windows.Forms.CheckedListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.stergeRandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -229,73 +219,12 @@
             // dateMasini
             // 
             this.dateMasini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dateMasini.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Firma,
-            this.Model,
-            this.An,
-            this.Culoare,
-            this.Vanzator,
-            this.Cumparator,
-            this.Data_tranzactie,
-            this.Pret,
-            this.Optiuni});
             this.dateMasini.Location = new System.Drawing.Point(311, 10);
             this.dateMasini.Name = "dateMasini";
             this.dateMasini.Size = new System.Drawing.Size(714, 335);
             this.dateMasini.TabIndex = 33;
             this.dateMasini.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dateMasini_CellContentClick);
             this.dateMasini.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dateMasini_CellMouseUp);
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            // 
-            // Firma
-            // 
-            this.Firma.HeaderText = "Firma";
-            this.Firma.Name = "Firma";
-            // 
-            // Model
-            // 
-            this.Model.HeaderText = "Model";
-            this.Model.Name = "Model";
-            // 
-            // An
-            // 
-            this.An.HeaderText = "An";
-            this.An.Name = "An";
-            // 
-            // Culoare
-            // 
-            this.Culoare.HeaderText = "Culoare";
-            this.Culoare.Name = "Culoare";
-            // 
-            // Vanzator
-            // 
-            this.Vanzator.HeaderText = "Vanzator";
-            this.Vanzator.Name = "Vanzator";
-            // 
-            // Cumparator
-            // 
-            this.Cumparator.HeaderText = "Cumparator";
-            this.Cumparator.Name = "Cumparator";
-            // 
-            // Data_tranzactie
-            // 
-            this.Data_tranzactie.HeaderText = "Data tranzactie";
-            this.Data_tranzactie.Name = "Data_tranzactie";
-            // 
-            // Pret
-            // 
-            this.Pret.HeaderText = "Pret [RON]";
-            this.Pret.Name = "Pret";
-            // 
-            // Optiuni
-            // 
-            this.Optiuni.HeaderText = "Optiuni";
-            this.Optiuni.Name = "Optiuni";
             // 
             // lstOptiuni
             // 
@@ -406,16 +335,6 @@
         private System.Windows.Forms.ComboBox cmbCuloare;
         private System.Windows.Forms.TextBox txtPret;
         private System.Windows.Forms.DataGridView dateMasini;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Firma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
-        private System.Windows.Forms.DataGridViewTextBoxColumn An;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Culoare;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Vanzator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cumparator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data_tranzactie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pret;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Optiuni;
         private System.Windows.Forms.CheckedListBox lstOptiuni;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem stergeRandToolStripMenuItem;
