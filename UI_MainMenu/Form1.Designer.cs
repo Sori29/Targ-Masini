@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblnNumeFirma = new System.Windows.Forms.Label();
             this.lblnNumeModel = new System.Windows.Forms.Label();
             this.lblnAn = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.txtNumeModel = new System.Windows.Forms.TextBox();
             this.txtAn = new System.Windows.Forms.TextBox();
             this.btnAdauga = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.lblnNumeVanzator = new System.Windows.Forms.Label();
             this.lblnNumeCumparator = new System.Windows.Forms.Label();
             this.lblnDataTranzactie = new System.Windows.Forms.Label();
@@ -46,7 +46,6 @@
             this.txtCumparator = new System.Windows.Forms.TextBox();
             this.dataTranzactie = new System.Windows.Forms.DateTimePicker();
             this.cmbCuloare = new System.Windows.Forms.ComboBox();
-            this.lstOptiuni = new System.Windows.Forms.ListBox();
             this.txtPret = new System.Windows.Forms.TextBox();
             this.dateMasini = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +58,12 @@
             this.Data_tranzactie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pret = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Optiuni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lstOptiuni = new System.Windows.Forms.CheckedListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.stergeRandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dateMasini)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblnNumeFirma
@@ -130,7 +134,7 @@
             // 
             // btnAdauga
             // 
-            this.btnAdauga.Location = new System.Drawing.Point(65, 415);
+            this.btnAdauga.Location = new System.Drawing.Point(65, 437);
             this.btnAdauga.Name = "btnAdauga";
             this.btnAdauga.Size = new System.Drawing.Size(75, 23);
             this.btnAdauga.TabIndex = 10;
@@ -138,20 +142,10 @@
             this.btnAdauga.UseVisualStyleBackColor = true;
             this.btnAdauga.Click += new System.EventHandler(this.btnAdauga_Click);
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(170, 415);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh.TabIndex = 11;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // lblnNumeVanzator
             // 
             this.lblnNumeVanzator.AutoSize = true;
-            this.lblnNumeVanzator.Location = new System.Drawing.Point(62, 229);
+            this.lblnNumeVanzator.Location = new System.Drawing.Point(62, 253);
             this.lblnNumeVanzator.Name = "lblnNumeVanzator";
             this.lblnNumeVanzator.Size = new System.Drawing.Size(49, 13);
             this.lblnNumeVanzator.TabIndex = 12;
@@ -160,7 +154,7 @@
             // lblnNumeCumparator
             // 
             this.lblnNumeCumparator.AutoSize = true;
-            this.lblnNumeCumparator.Location = new System.Drawing.Point(63, 270);
+            this.lblnNumeCumparator.Location = new System.Drawing.Point(62, 298);
             this.lblnNumeCumparator.Name = "lblnNumeCumparator";
             this.lblnNumeCumparator.Size = new System.Drawing.Size(61, 13);
             this.lblnNumeCumparator.TabIndex = 13;
@@ -169,7 +163,7 @@
             // lblnDataTranzactie
             // 
             this.lblnDataTranzactie.AutoSize = true;
-            this.lblnDataTranzactie.Location = new System.Drawing.Point(63, 319);
+            this.lblnDataTranzactie.Location = new System.Drawing.Point(62, 346);
             this.lblnDataTranzactie.Name = "lblnDataTranzactie";
             this.lblnDataTranzactie.Size = new System.Drawing.Size(79, 13);
             this.lblnDataTranzactie.TabIndex = 14;
@@ -178,7 +172,7 @@
             // lblnPret
             // 
             this.lblnPret.AutoSize = true;
-            this.lblnPret.Location = new System.Drawing.Point(65, 359);
+            this.lblnPret.Location = new System.Drawing.Point(62, 385);
             this.lblnPret.Name = "lblnPret";
             this.lblnPret.Size = new System.Drawing.Size(26, 13);
             this.lblnPret.TabIndex = 15;
@@ -186,14 +180,14 @@
             // 
             // txtVanzator
             // 
-            this.txtVanzator.Location = new System.Drawing.Point(159, 229);
+            this.txtVanzator.Location = new System.Drawing.Point(159, 250);
             this.txtVanzator.Name = "txtVanzator";
             this.txtVanzator.Size = new System.Drawing.Size(114, 20);
             this.txtVanzator.TabIndex = 16;
             // 
             // txtCumparator
             // 
-            this.txtCumparator.Location = new System.Drawing.Point(159, 270);
+            this.txtCumparator.Location = new System.Drawing.Point(159, 295);
             this.txtCumparator.Name = "txtCumparator";
             this.txtCumparator.Size = new System.Drawing.Size(114, 20);
             this.txtCumparator.TabIndex = 17;
@@ -201,7 +195,7 @@
             // dataTranzactie
             // 
             this.dataTranzactie.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dataTranzactie.Location = new System.Drawing.Point(159, 319);
+            this.dataTranzactie.Location = new System.Drawing.Point(158, 340);
             this.dataTranzactie.Name = "dataTranzactie";
             this.dataTranzactie.Size = new System.Drawing.Size(121, 20);
             this.dataTranzactie.TabIndex = 18;
@@ -223,37 +217,11 @@
             this.cmbCuloare.Name = "cmbCuloare";
             this.cmbCuloare.Size = new System.Drawing.Size(121, 21);
             this.cmbCuloare.TabIndex = 19;
-            // 
-            // lstOptiuni
-            // 
-            this.lstOptiuni.FormattingEnabled = true;
-            this.lstOptiuni.Items.AddRange(new object[] {
-            "Aer conditionat",
-            "Navigatie",
-            "Cutie automata",
-            "Cutie manuala",
-            "ABS",
-            "ESP",
-            "Airbaguri",
-            "Camera de bord",
-            "Avertizor centura",
-            "Sistem audio",
-            "Mufa auxiliara",
-            "Tapiterie piele",
-            "Tapiterie textila",
-            "Volan incalzit",
-            "Geamuri electrice",
-            "Trapa electrica"});
-            this.lstOptiuni.Location = new System.Drawing.Point(160, 191);
-            this.lstOptiuni.Name = "lstOptiuni";
-            this.lstOptiuni.ScrollAlwaysVisible = true;
-            this.lstOptiuni.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstOptiuni.Size = new System.Drawing.Size(120, 17);
-            this.lstOptiuni.TabIndex = 20;
+            this.cmbCuloare.SelectionChangeCommitted += new System.EventHandler(this.cmbCuloare_SelectionChangeCommitted);
             // 
             // txtPret
             // 
-            this.txtPret.Location = new System.Drawing.Point(159, 359);
+            this.txtPret.Location = new System.Drawing.Point(159, 382);
             this.txtPret.Name = "txtPret";
             this.txtPret.Size = new System.Drawing.Size(100, 20);
             this.txtPret.TabIndex = 21;
@@ -277,6 +245,7 @@
             this.dateMasini.Size = new System.Drawing.Size(714, 335);
             this.dateMasini.TabIndex = 33;
             this.dateMasini.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dateMasini_CellContentClick);
+            this.dateMasini.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dateMasini_CellMouseUp);
             // 
             // ID
             // 
@@ -328,15 +297,67 @@
             this.Optiuni.HeaderText = "Optiuni";
             this.Optiuni.Name = "Optiuni";
             // 
+            // lstOptiuni
+            // 
+            this.lstOptiuni.CheckOnClick = true;
+            this.lstOptiuni.FormattingEnabled = true;
+            this.lstOptiuni.Items.AddRange(new object[] {
+            "Aer conditionat",
+            "Navigatie",
+            "Cutie automata",
+            "Cutie manuala",
+            "ABS",
+            "ESP",
+            "Airbaguri",
+            "Camera de bord",
+            "Avertizor centura",
+            "Sistem audio",
+            "Mufa auxiliara",
+            "Tapiterie piele",
+            "Tapiterie textila",
+            "Volan incalzit",
+            "Geamuri electrice",
+            "Trapa electrica"});
+            this.lstOptiuni.Location = new System.Drawing.Point(159, 189);
+            this.lstOptiuni.Name = "lstOptiuni";
+            this.lstOptiuni.Size = new System.Drawing.Size(120, 34);
+            this.lstOptiuni.TabIndex = 34;
+            this.lstOptiuni.SelectedIndexChanged += new System.EventHandler(this.lstOptiuni_SelectedIndexChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stergeRandToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 26);
+            this.contextMenuStrip1.Click += new System.EventHandler(this.contextMenuStrip1_Click);
+            // 
+            // stergeRandToolStripMenuItem
+            // 
+            this.stergeRandToolStripMenuItem.Name = "stergeRandToolStripMenuItem";
+            this.stergeRandToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.stergeRandToolStripMenuItem.Text = "Sterge rand";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(184, 437);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 36;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1050, 482);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.lstOptiuni);
             this.Controls.Add(this.dateMasini);
             this.Controls.Add(this.txtPret);
-            this.Controls.Add(this.lstOptiuni);
             this.Controls.Add(this.cmbCuloare);
             this.Controls.Add(this.dataTranzactie);
             this.Controls.Add(this.txtCumparator);
@@ -345,7 +366,6 @@
             this.Controls.Add(this.lblnDataTranzactie);
             this.Controls.Add(this.lblnNumeCumparator);
             this.Controls.Add(this.lblnNumeVanzator);
-            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnAdauga);
             this.Controls.Add(this.txtAn);
             this.Controls.Add(this.txtNumeModel);
@@ -359,6 +379,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dateMasini)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,7 +396,6 @@
         private System.Windows.Forms.TextBox txtNumeModel;
         private System.Windows.Forms.TextBox txtAn;
         private System.Windows.Forms.Button btnAdauga;
-        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Label lblnNumeVanzator;
         private System.Windows.Forms.Label lblnNumeCumparator;
         private System.Windows.Forms.Label lblnDataTranzactie;
@@ -384,7 +404,6 @@
         private System.Windows.Forms.TextBox txtCumparator;
         private System.Windows.Forms.DateTimePicker dataTranzactie;
         private System.Windows.Forms.ComboBox cmbCuloare;
-        private System.Windows.Forms.ListBox lstOptiuni;
         private System.Windows.Forms.TextBox txtPret;
         private System.Windows.Forms.DataGridView dateMasini;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
@@ -397,6 +416,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_tranzactie;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pret;
         private System.Windows.Forms.DataGridViewTextBoxColumn Optiuni;
+        private System.Windows.Forms.CheckedListBox lstOptiuni;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem stergeRandToolStripMenuItem;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
 

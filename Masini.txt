@@ -1,1 +1,3 @@
-1;Audi;A6 2.0 TDI;2006;negru;aer_conditionat, navigatie, cutie_manuala, ABS, Airbaguri, avetizor_centura_de_siguranta, mufa_auxiliara, ;Lungu Sorin;Marius Catalin;12.05.2009 00:00:00;5000;
+1;Dacia;Duster;2012;Negru;Aer conditionat,Navigatie,Cutie manuala,ABS,ESP,Airbaguri,Mufa auxiliara,Tapiterie piele,;Lungu Sorin;Marius Catalin;03/06/2020 11:27:12 PM;3000;
+2;Skoda;Octavia 2.0 TDI;2010;Albastru;Aer conditionat,Navigatie,Cutie automata,ESP,Airbaguri,Avertizor centura,Sistem audio,Tapiterie piele,;Todosi Vasile;Strugariu Ilie;22/07/2015 11:35:19 PM;5500;
+3;Audi;A6 2.0 TDI;2006;Negru;Aer conditionat,Navigatie,Cutie manuala,ABS,ESP,Airbaguri,Avertizor centura,Sistem audio,Tapiterie piele,Geamuri electrice,;Lungu Sorin;Todosi Vasile;13/07/2012 11:41:16 PM;5500;
