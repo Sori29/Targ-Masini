@@ -57,6 +57,7 @@
             this.cmbCautare = new System.Windows.Forms.ComboBox();
             this.txtCautare = new System.Windows.Forms.TextBox();
             this.btnInapoi = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dateMasini)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -226,7 +227,7 @@
             this.dateMasini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dateMasini.Location = new System.Drawing.Point(311, 10);
             this.dateMasini.Name = "dateMasini";
-            this.dateMasini.Size = new System.Drawing.Size(714, 335);
+            this.dateMasini.Size = new System.Drawing.Size(816, 335);
             this.dateMasini.TabIndex = 33;
             this.dateMasini.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dateMasini_CellContentClick);
             this.dateMasini.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dateMasini_CellMouseUp);
@@ -343,12 +344,23 @@
             this.btnInapoi.Visible = false;
             this.btnInapoi.Click += new System.EventHandler(this.btnInapoi_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(65, 491);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Grafic pret";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1050, 482);
+            this.ClientSize = new System.Drawing.Size(1124, 556);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnInapoi);
             this.Controls.Add(this.txtCautare);
             this.Controls.Add(this.cmbCautare);
@@ -415,6 +427,7 @@
         private System.Windows.Forms.ComboBox cmbCautare;
         private System.Windows.Forms.TextBox txtCautare;
         private System.Windows.Forms.Button btnInapoi;
+        private System.Windows.Forms.Button button1;
     }
 }
 

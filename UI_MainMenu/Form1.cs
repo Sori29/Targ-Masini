@@ -20,7 +20,7 @@ namespace UI_MainMenu
         static string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
         static string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
         AdministareMasini_FisierTxt adminMasini = new AdministareMasini_FisierTxt(caleCompletaFisier);
-        DataTable TabelDate;
+        public DataTable TabelDate;
         private int rowIndex = 0;
         private string culoare_selectata;
         private string cautare_selectata;
@@ -256,6 +256,13 @@ namespace UI_MainMenu
             cmbCautare.Visible = false;
             txtCautare.Visible = false;
             btnInapoi.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 frm2=new Form2(TabelDate);
+            frm2.ShowDialog();
+                
         }
     }
 }
