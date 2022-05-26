@@ -303,6 +303,7 @@
             // 
             // cmbCautare
             // 
+            this.cmbCautare.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCautare.FormattingEnabled = true;
             this.cmbCautare.Items.AddRange(new object[] {
             "ID",

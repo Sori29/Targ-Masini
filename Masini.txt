@@ -3,5 +3,4 @@
 3;Audi;A6 2.0 TDI;2007;Alb;Aer conditionat,Navigatie,Cutie automata,ABS,ESP,Airbaguri,Mufa auxiliara,Tapiterie piele,Geamuri electrice,;Strugariu Ilie;Lungu Sorin;13/06/2013 11:49:33 PM;7000;
 4;Dacia;Duster 1.5 dCi;2017;Gri;Aer conditionat,Navigatie,Cutie automata,ESP,Airbaguri,Sistem audio,Mufa auxiliara,Tapiterie textila,Geamuri electrice,;Cristian Catalin;Cojocari Diana-Maria;12/06/2019 2:18:09 AM;7500;
 5;Audi;A6 2.0 TDI;2008;Rosu;Aer conditionat,Navigatie,Cutie automata,ABS,ESP,Airbaguri,Avertizor centura,Sistem audio,Tapiterie piele,Volan incalzit,Geamuri electrice,;Popescu Mihai;Strugariu Ilie;25/07/2015 2:18:09 AM;6250;
-6;Renualt;Clio 1.6;2010;Negru;Aer conditionat,Navigatie,Cutie automata,Cutie manuala,ABS,ESP,Airbaguri,Sistem audio,;Lungu Sorin;Strugariu Ilie;13/07/2012 3:11:17 AM;7000;
-7;Dacia;Login;2019;Albastru;Aer conditionat,Navigatie,Cutie manuala,ESP,Airbaguri,Avertizor centura,Mufa auxiliara,Tapiterie textila,Geamuri electrice,;Marian Evanghelie;Ciprian Tudor;13/11/2020 6:01:23 AM;8000;
+6;Dacia;Login;2019;Albastru;Aer conditionat,Navigatie,Cutie manuala,ESP,Airbaguri,Avertizor centura,Mufa auxiliara,Tapiterie textila,Geamuri electrice,;Marian Evanghelie;Ciprian Tudor;13/11/2020 6:01:23 AM;8000;

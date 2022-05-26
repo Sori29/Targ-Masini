@@ -24,7 +24,6 @@ namespace UI_MainMenu
         private int rowIndex = 0;
         private string culoare_selectata;
         private string cautare_selectata;
-        private Label lbleroare;
         private const int LATIME_CONTROL = 100;
         private const int OFFSET = 500;
         private const int DIMENSIUNE_PAS_Y = 30;
@@ -43,11 +42,6 @@ namespace UI_MainMenu
             //initializare coloane tabel de date
             initializare_coloane();
 
-            lbleroare = new Label();
-            lbleroare.Width = 4 * LATIME_CONTROL;
-            lbleroare.Top = 16 * DIMENSIUNE_PAS_Y;
-            lbleroare.Left = 70;
-            lbleroare.ForeColor = Color.Red;
 
         }
         private void initializare_coloane()
@@ -64,7 +58,7 @@ namespace UI_MainMenu
             TabelDate.Columns.Add("Pret", typeof(uint));
             TabelDate.Columns.Add("Optiuni", typeof(string));
         }
-        private void verificare_duplicare_vanzator_cumparator(DataGridView dateMasini)
+        private void verificare_duplicare_vanzator_cumparator(DataGridView dateMasini) //functie de verificare si afisare mesaj de tip box in cazul in care exista un vanzator sau un cumparator dublicat
         {
             dateMasini.Sort(dateMasini.Columns[7], ListSortDirection.Descending);
             for(int row=0;row<dateMasini.Rows.Count-1;row++)
@@ -101,19 +95,19 @@ namespace UI_MainMenu
                 dateMasini.Sort(dateMasini.Columns[0], ListSortDirection.Ascending);
             }
         }
-        private void ClearCheckedBoxes()
+        private void ClearCheckedBoxes() // functie de debifare casute selectate pentru sectiunea Optiuni
         {
             foreach(int i in lstOptiuni.CheckedIndices)
             {
                 lstOptiuni.SetItemCheckState(i, CheckState.Unchecked);
             }
         }
-        private void AdaugareRand(Masina masina)
+        private void AdaugareRand(Masina masina) // functie de adaugare rand in Tabelul de date
         {
             TabelDate.Rows.Add(masina.IDMasina, masina.numeFirma, masina.model, masina.an, masina.culoare, masina.numeVanzator,
                                masina.numeCumparator, masina.dataTranzactie.Value.ToShortDateString(), masina.pret, masina.optiuni);
         }
-        private void AfiseazaMasini()
+        private void AfiseazaMasini() //afisarea masinilor
         {
             Masina[] masini = adminMasini.GetMasini(out int nrMasini);
             foreach (Masina masina in masini)
@@ -127,7 +121,7 @@ namespace UI_MainMenu
             }
             dateMasini.DataSource = TabelDate;
         }
-        private void Golire_casutetxt()
+        private void Golire_casutetxt() // functie de golire casute la introducerea unei masini
         {
             txtNumeFirma.Text = String.Empty;
             txtNumeModel.Text = String.Empty;
@@ -138,33 +132,29 @@ namespace UI_MainMenu
             ClearCheckedBoxes();
             cmbCuloare.SelectedItem = null;
         }
-        private void btnAdauga_Click(object sender, EventArgs e)
+        private void btnAdauga_Click(object sender, EventArgs e) // functie de agaugare in fisier si dataTable
         {
             Masina[] masini = adminMasini.GetMasini(out int nrMasini);
             if (txtNumeFirma.Text == String.Empty || txtNumeModel.Text == string.Empty || txtAn.Text == string.Empty || cmbCuloare.SelectedIndex==-1 || lstOptiuni.CheckedItems == null || txtVanzator.Text == string.Empty || txtCumparator.Text==string.Empty || txtPret.Text==string.Empty)
             {
-                lbleroare.Text = "O casuta completata sau selectata este goala, introduceti din nou";
-                this.Controls.Add(lbleroare);
+                MessageBox.Show("O casuta obligatorie nu a fost completa", "Adaugare invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (txtAn.Text.Any(char.IsLetter))
             {
-                lbleroare.Text = "Anul completat este invalid, introduceti din nou";
+                MessageBox.Show("Anul completat este invalid", "Adaugare invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 lblnAn.ForeColor = Color.Red;
-                this.Controls.Add(lbleroare);
+                
             }
             else if(Int32.Parse(txtAn.Text) > dataTranzactie.Value.Year)
             {
-                lbleroare.Text = "Anul fabricatiei nu poate sa fie mai mare decat an tranzactie, introduceti din nou";
+                MessageBox.Show("Anul fabricatiei nu poate sa fie mai mare decat an tranzactie", "Adaugare invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 lblnAn.ForeColor=Color.Red;
                 lblnDataTranzactie.ForeColor = Color.Red;
-                this.Controls.Add(lbleroare);
             }
             else
             {
                 lblnAn.ForeColor = Color.LimeGreen;
                 lblnDataTranzactie.ForeColor= Color.LimeGreen;
-                lbleroare.Text = String.Empty;
-                this.Controls.Add(lbleroare);
                 string firma = txtNumeFirma.Text;
                 string model = txtNumeModel.Text;
                 uint an = UInt32.Parse(txtAn.Text);
@@ -190,13 +180,13 @@ namespace UI_MainMenu
             AfiseazaMasini();
         }
 
-        private void cmbCuloare_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cmbCuloare_SelectionChangeCommitted(object sender, EventArgs e) //functie de preluare culoare din combobox
         {
             ComboBox c = (ComboBox)sender;
             culoare_selectata = c.GetItemText(c.SelectedItem);
         }
 
-        private void dateMasini_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        private void dateMasini_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e) // functie de afisare apelare "stergere" prin click dreapta pe randul din tabela
         {
             if(e.Button==MouseButtons.Right)
             {
@@ -207,34 +197,43 @@ namespace UI_MainMenu
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }
-        private void contextMenuStrip1_Click(object sender, EventArgs e)
+        private void contextMenuStrip1_Click(object sender, EventArgs e) // functie de stergere a liniei selectate cu sincronizare in fisier
         {
-            Masina[] masini = adminMasini.GetMasini(out int nrMasini);
-            if (!this.dateMasini.Rows[this.rowIndex].IsNewRow)
+            MessageBox.Show("Sunteti sigur ca doriti sa stergeti randul selectat?", "Confirmare stergere", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (DialogResult == DialogResult.No)
             {
-                TabelDate.Rows.RemoveAt(this.rowIndex);
-                TabelDate.Reset();
-                var file = new List<string>(System.IO.File.ReadAllLines(caleCompletaFisier));
-                file.RemoveAt(rowIndex);
-                if (rowIndex == nrMasini - 1)
-                {
-                    File.WriteAllLines(caleCompletaFisier, file.ToArray());
-                }
-                else
-                {
-                    for(int contor = rowIndex; contor < nrMasini-1; contor++)
-                                    {
-                                        string[] linie = file[contor].Split(';');
-                                        int IDcurent=Int32.Parse(linie[0]);
-                                        IDcurent = IDcurent - 1;
-                                        linie[0] = IDcurent.ToString();
-                                        file[contor] = String.Join(";", linie);
-                                    }
-                                    File.WriteAllLines(caleCompletaFisier, file.ToArray());
-                }
-                initializare_coloane();
-                AfiseazaMasini();
+                return;
             }
+            else if (DialogResult == DialogResult.Yes)
+            {
+            Masina[] masini = adminMasini.GetMasini(out int nrMasini);
+                if (!this.dateMasini.Rows[this.rowIndex].IsNewRow)
+                {
+                    TabelDate.Rows.RemoveAt(this.rowIndex);
+                    TabelDate.Reset();
+                    var file = new List<string>(System.IO.File.ReadAllLines(caleCompletaFisier));
+                    file.RemoveAt(rowIndex);
+                    if (rowIndex == nrMasini - 1)
+                    {
+                        File.WriteAllLines(caleCompletaFisier, file.ToArray());
+                    }
+                    else
+                    {
+                        for(int contor = rowIndex; contor < nrMasini-1; contor++) //resincronziare ID
+                        {
+                            string[] linie = file[contor].Split(';');
+                            int IDcurent=Int32.Parse(linie[0]);
+                            IDcurent = IDcurent - 1;
+                            linie[0] = IDcurent.ToString();
+                            file[contor] = String.Join(";", linie);
+                        }
+                        File.WriteAllLines(caleCompletaFisier, file.ToArray()); //scriere in fisier
+                    }
+                    initializare_coloane();
+                    AfiseazaMasini();
+                }
+            }
+            
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -252,7 +251,7 @@ namespace UI_MainMenu
             cmbCautare.Visible = true;
         }
 
-        private void cmbCautare_SelectionChangesCommitted(object sender, EventArgs e)
+        private void cmbCautare_SelectionChangesCommitted(object sender, EventArgs e) //selectare optiune selectata in dropdown-ul pentru cautare
         {
             ComboBox c = (ComboBox)sender;
             cautare_selectata = c.GetItemText(c.SelectedItem);
@@ -260,7 +259,7 @@ namespace UI_MainMenu
             btnInapoi.Visible = true;
         }
 
-        private void txtCautare_TextChanged(object sender, EventArgs e)
+        private void txtCautare_TextChanged(object sender, EventArgs e) //Functie de cautare automata, returneaza eroare in caz ca nu gaseste
         {
             string valuare_cautata=txtCautare.Text;
             int poz = TabelDate.Columns.IndexOf(cautare_selectata);
@@ -271,7 +270,7 @@ namespace UI_MainMenu
                          select row;
                 if(re.Count() == 0)
                 {
-                    MessageBox.Show("Cautarea nu a returnat rezultate","Fara rezultate",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Cautarea nu a returnat rezultate","Cautare esuata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 else
                 {
