@@ -229,7 +229,6 @@
             this.dateMasini.Name = "dateMasini";
             this.dateMasini.Size = new System.Drawing.Size(816, 335);
             this.dateMasini.TabIndex = 33;
-            this.dateMasini.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dateMasini_CellContentClick);
             this.dateMasini.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dateMasini_CellMouseUp);
             // 
             // lstOptiuni
@@ -257,7 +256,6 @@
             this.lstOptiuni.Name = "lstOptiuni";
             this.lstOptiuni.Size = new System.Drawing.Size(120, 34);
             this.lstOptiuni.TabIndex = 34;
-            this.lstOptiuni.SelectedIndexChanged += new System.EventHandler(this.lstOptiuni_SelectedIndexChanged);
             // 
             // contextMenuStrip1
             // 
@@ -359,7 +357,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1124, 556);
+            this.ClientSize = new System.Drawing.Size(1124, 573);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnInapoi);
             this.Controls.Add(this.txtCautare);
@@ -390,6 +388,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dateMasini)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);

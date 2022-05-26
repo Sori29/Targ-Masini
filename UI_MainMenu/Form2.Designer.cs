@@ -39,6 +39,7 @@
             this.dataInceput = new System.Windows.Forms.DateTimePicker();
             this.dataSfarsit = new System.Windows.Forms.DateTimePicker();
             this.btnGrafic = new System.Windows.Forms.Button();
+            this.btnInapoiGraph = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grafPret)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,11 +118,23 @@
             this.btnGrafic.UseVisualStyleBackColor = true;
             this.btnGrafic.Click += new System.EventHandler(this.btnGrafic_Click);
             // 
+            // btnInapoiGraph
+            // 
+            this.btnInapoiGraph.Location = new System.Drawing.Point(387, 276);
+            this.btnInapoiGraph.Name = "btnInapoiGraph";
+            this.btnInapoiGraph.Size = new System.Drawing.Size(75, 23);
+            this.btnInapoiGraph.TabIndex = 8;
+            this.btnInapoiGraph.Text = "Inapoi";
+            this.btnInapoiGraph.UseVisualStyleBackColor = true;
+            this.btnInapoiGraph.Visible = false;
+            this.btnInapoiGraph.Click += new System.EventHandler(this.btnInapoiGraph_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 450);
+            this.Controls.Add(this.btnInapoiGraph);
             this.Controls.Add(this.btnGrafic);
             this.Controls.Add(this.dataSfarsit);
             this.Controls.Add(this.dataInceput);
@@ -131,7 +144,7 @@
             this.Controls.Add(this.lblGraficTip);
             this.Controls.Add(this.grafPret);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Statistica pret la un model de masina";
             ((System.ComponentModel.ISupportInitialize)(this.grafPret)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -148,5 +161,6 @@
         private System.Windows.Forms.DateTimePicker dataInceput;
         private System.Windows.Forms.DateTimePicker dataSfarsit;
         private System.Windows.Forms.Button btnGrafic;
+        private System.Windows.Forms.Button btnInapoiGraph;
     }
 }

@@ -50,7 +50,6 @@ namespace UI_MainMenu
             lbleroare.ForeColor = Color.Red;
 
         }
-
         private void initializare_coloane()
         {
             TabelDate = new DataTable();
@@ -64,6 +63,43 @@ namespace UI_MainMenu
             TabelDate.Columns.Add("Data tranzactie", typeof(string));
             TabelDate.Columns.Add("Pret", typeof(uint));
             TabelDate.Columns.Add("Optiuni", typeof(string));
+        }
+        private void verificare_duplicare_vanzator_cumparator(DataGridView dateMasini)
+        {
+            dateMasini.Sort(dateMasini.Columns[7], ListSortDirection.Descending);
+            for(int row=0;row<dateMasini.Rows.Count-1;row++)
+            {
+                if (!dateMasini.Rows[row].Cells[7].Value.Equals(dateMasini.Rows[row + 1].Cells[7].Value))
+                    continue;
+                else
+                {
+                    string cumparator = dateMasini.Rows[row].Cells[6].Value.ToString();
+                    string vanzator = dateMasini.Rows[row].Cells[5].Value.ToString();
+                        for(int row2 = row+1; row2 < dateMasini.Rows.Count-1; row2++)
+                        {
+                            string cumparator_comparare=dateMasini.Rows[row2].Cells[6].Value.ToString();
+                            string vanzator_comparare = dateMasini.Rows[row2].Cells[5].Value.ToString();
+                                if (vanzator == vanzator_comparare)
+                                {
+                                    dateMasini.Rows[row].DefaultCellStyle.BackColor = Color.Red;
+                                    dateMasini.Rows[row2].DefaultCellStyle.BackColor = Color.Red;
+                                    MessageBox.Show("Exista o persoana care vinde mai multe masini in aceeasi zi","Nume identice",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                    row = dateMasini.Rows.Count - 1;
+                                    break;
+                                }
+                                if (cumparator == cumparator_comparare)
+                                {
+                                    dateMasini.Rows[row].DefaultCellStyle.BackColor = Color.Red;
+                                    dateMasini.Rows[row2].DefaultCellStyle.BackColor = Color.Red;
+                                    MessageBox.Show("Exista o persoana care cumparara mai multe masini in aceeasi zi", "Nume identice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    row = dateMasini.Rows.Count - 1;
+                                    break;  
+                                }
+                        }
+                }
+                dateMasini.Columns[0].SortMode=DataGridViewColumnSortMode.NotSortable;
+                dateMasini.Sort(dateMasini.Columns[0], ListSortDirection.Ascending);
+            }
         }
         private void ClearCheckedBoxes()
         {
@@ -116,9 +152,17 @@ namespace UI_MainMenu
                 lblnAn.ForeColor = Color.Red;
                 this.Controls.Add(lbleroare);
             }
+            else if(Int32.Parse(txtAn.Text) > dataTranzactie.Value.Year)
+            {
+                lbleroare.Text = "Anul fabricatiei nu poate sa fie mai mare decat an tranzactie, introduceti din nou";
+                lblnAn.ForeColor=Color.Red;
+                lblnDataTranzactie.ForeColor = Color.Red;
+                this.Controls.Add(lbleroare);
+            }
             else
             {
                 lblnAn.ForeColor = Color.LimeGreen;
+                lblnDataTranzactie.ForeColor= Color.LimeGreen;
                 lbleroare.Text = String.Empty;
                 this.Controls.Add(lbleroare);
                 string firma = txtNumeFirma.Text;
@@ -144,16 +188,6 @@ namespace UI_MainMenu
         private void Form1_Load_1(object sender, EventArgs e)
         {
             AfiseazaMasini();
-        }
-
-        private void dateMasini_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void lstOptiuni_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void cmbCuloare_SelectionChangeCommitted(object sender, EventArgs e)
@@ -237,7 +271,7 @@ namespace UI_MainMenu
                          select row;
                 if(re.Count() == 0)
                 {
-                    MessageBox.Show("Fara rezultate");
+                    MessageBox.Show("Cautarea nu a returnat rezultate","Fara rezultate",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -263,6 +297,11 @@ namespace UI_MainMenu
             Form2 frm2=new Form2(TabelDate);
             frm2.ShowDialog();
                 
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            verificare_duplicare_vanzator_cumparator(dateMasini);
         }
     }
 }
