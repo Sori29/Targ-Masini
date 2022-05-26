@@ -202,13 +202,6 @@ namespace UI_MainMenu
         }
         private void contextMenuStrip1_Click(object sender, EventArgs e) // functie de stergere a liniei selectate cu sincronizare in fisier
         {
-            MessageBox.Show("Sunteti sigur ca doriti sa stergeti randul selectat?", "Confirmare stergere", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (DialogResult == DialogResult.No)
-            {
-                return;
-            }
-            else if (DialogResult == DialogResult.Yes)
-            {
             Masina[] masini = adminMasini.GetMasini(out int nrMasini);
                 if (!this.dateMasini.Rows[this.rowIndex].IsNewRow)
                 {
@@ -216,7 +209,7 @@ namespace UI_MainMenu
                     TabelDate.Reset();
                     var file = new List<string>(System.IO.File.ReadAllLines(caleCompletaFisier));
                     file.RemoveAt(rowIndex);
-                    if (rowIndex == nrMasini - 1)
+                    if (rowIndex == nrMasini - 1) //daca linia selectata este ultima din tabel
                     {
                         File.WriteAllLines(caleCompletaFisier, file.ToArray());
                     }
@@ -235,11 +228,11 @@ namespace UI_MainMenu
                     initializare_coloane();
                     AfiseazaMasini();
                 }
-            }
+            
             
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e) //refresh al tabelei de date
         {
             initializare_coloane();
             AfiseazaMasini();
@@ -248,7 +241,7 @@ namespace UI_MainMenu
             //dateMasini.DataSource = TabelDate;
         }
 
-        private void btnCautare_Click(object sender, EventArgs e)
+        private void btnCautare_Click(object sender, EventArgs e) 
         {
             lblCautare.Visible = true;
             cmbCautare.Visible = true;

@@ -1,6 +1,8 @@
 1;Audi;A6 2.0 TDI;2006;Negru;Aer conditionat,Navigatie,Cutie manuala,ABS,ESP,Airbaguri,Avertizor centura,Sistem audio,Tapiterie piele,Geamuri electrice,;Lungu Sorin;Todosi Vasile;13/07/2012 11:41:16 PM;5500;
-2;Skoda;Octavia 2.0 TDI;2010;Verde;Aer conditionat,Navigatie,Cutie manuala,ABS,Airbaguri,Avertizor centura,Sistem audio,Mufa auxiliara,Tapiterie piele,Geamuri electrice,;Cojocari Diana-Maria;Lungu Sorin;28/02/2021 1:16:48 AM;4000;
-3;Audi;A6 2.0 TDI;2007;Alb;Aer conditionat,Navigatie,Cutie automata,ABS,ESP,Airbaguri,Mufa auxiliara,Tapiterie piele,Geamuri electrice,;Strugariu Ilie;Lungu Sorin;13/06/2013 11:49:33 PM;7000;
-4;Dacia;Duster 1.5 dCi;2017;Gri;Aer conditionat,Navigatie,Cutie automata,ESP,Airbaguri,Sistem audio,Mufa auxiliara,Tapiterie textila,Geamuri electrice,;Cristian Catalin;Cojocari Diana-Maria;12/06/2019 2:18:09 AM;7500;
-5;Audi;A6 2.0 TDI;2008;Rosu;Aer conditionat,Navigatie,Cutie automata,ABS,ESP,Airbaguri,Avertizor centura,Sistem audio,Tapiterie piele,Volan incalzit,Geamuri electrice,;Popescu Mihai;Strugariu Ilie;25/07/2015 2:18:09 AM;6250;
-6;Dacia;Login;2019;Albastru;Aer conditionat,Navigatie,Cutie manuala,ESP,Airbaguri,Avertizor centura,Mufa auxiliara,Tapiterie textila,Geamuri electrice,;Marian Evanghelie;Ciprian Tudor;13/11/2020 6:01:23 AM;8000;
+2;Audi;A6 2.0 TDI;2007;Alb;Aer conditionat,Navigatie,Cutie automata,ABS,ESP,Airbaguri,Mufa auxiliara,Tapiterie piele,Geamuri electrice,;Strugariu Ilie;Lungu Sorin;13/06/2013 11:49:33 PM;7000;
+3;Dacia;Duster 1.5 dCi;2017;Gri;Aer conditionat,Navigatie,Cutie automata,ESP,Airbaguri,Sistem audio,Mufa auxiliara,Tapiterie textila,Geamuri electrice,;Cristian Catalin;Cojocari Diana-Maria;12/06/2019 2:18:09 AM;7500;
+4;Audi;A6 2.0 TDI;2008;Rosu;Aer conditionat,Navigatie,Cutie automata,ABS,ESP,Airbaguri,Avertizor centura,Sistem audio,Tapiterie piele,Volan incalzit,Geamuri electrice,;Popescu Mihai;Strugariu Ilie;25/07/2015 2:18:09 AM;6250;
+5;Dacia;Login;2019;Albastru;Aer conditionat,Navigatie,Cutie manuala,ESP,Airbaguri,Avertizor centura,Mufa auxiliara,Tapiterie textila,Geamuri electrice,;Marian Evanghelie;Ciprian Tudor;13/11/2020 6:01:23 AM;8000;
+6;Audi;A6 2.0 TDI;2006;Negru;Aer conditionat,Navigatie,;Lungu Sorin;Marius Catalin;20/07/2007 11:06:46 AM;2500;
+7;Audi;A6 2.0 TDI;2006;Albastru;Aer conditionat,Navigatie,ABS,ESP,Avertizor centura,Sistem audio,;Lungu Sorin;Marius ;25/07/2015 11:15:11 AM;6000;
+8;Audi;A4;2006;Galben;Aer conditionat,Navigatie,;Lungu Sorin;Catalin Mariciuc;25/07/2015 11:16:18 AM;7500;
