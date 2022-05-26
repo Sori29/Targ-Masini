@@ -57,7 +57,11 @@
             this.cmbCautare = new System.Windows.Forms.ComboBox();
             this.txtCautare = new System.Windows.Forms.TextBox();
             this.btnInapoi = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGrafic = new System.Windows.Forms.Button();
+            this.TipAdauga = new System.Windows.Forms.ToolTip(this.components);
+            this.TipRefresh = new System.Windows.Forms.ToolTip(this.components);
+            this.TipCautare = new System.Windows.Forms.ToolTip(this.components);
+            this.TipGrafic = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dateMasini)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -343,15 +347,31 @@
             this.btnInapoi.Visible = false;
             this.btnInapoi.Click += new System.EventHandler(this.btnInapoi_Click);
             // 
-            // button1
+            // btnGrafic
             // 
-            this.button1.Location = new System.Drawing.Point(65, 491);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Grafic pret";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGrafic.Location = new System.Drawing.Point(65, 491);
+            this.btnGrafic.Name = "btnGrafic";
+            this.btnGrafic.Size = new System.Drawing.Size(75, 23);
+            this.btnGrafic.TabIndex = 42;
+            this.btnGrafic.Text = "Grafic pret";
+            this.btnGrafic.UseVisualStyleBackColor = true;
+            this.btnGrafic.Click += new System.EventHandler(this.btnGrafic_Click);
+            // 
+            // TipAdauga
+            // 
+            this.TipAdauga.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // TipRefresh
+            // 
+            this.TipRefresh.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // TipCautare
+            // 
+            this.TipCautare.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // TipGrafic
+            // 
+            this.TipGrafic.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // Form1
             // 
@@ -359,7 +379,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1124, 573);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGrafic);
             this.Controls.Add(this.btnInapoi);
             this.Controls.Add(this.txtCautare);
             this.Controls.Add(this.cmbCautare);
@@ -427,7 +447,11 @@
         private System.Windows.Forms.ComboBox cmbCautare;
         private System.Windows.Forms.TextBox txtCautare;
         private System.Windows.Forms.Button btnInapoi;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGrafic;
+        private System.Windows.Forms.ToolTip TipAdauga;
+        private System.Windows.Forms.ToolTip TipRefresh;
+        private System.Windows.Forms.ToolTip TipCautare;
+        private System.Windows.Forms.ToolTip TipGrafic;
     }
 }
 

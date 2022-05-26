@@ -25,12 +25,15 @@ namespace UI_MainMenu
         public Form2()
         {
             InitializeComponent();
-
+            this.Font = new Font("Arial", 9, FontStyle.Bold);
+            this.ForeColor = Color.DarkSlateGray;
         }
 
         public Form2(DataTable Tabelprimit)
         {
             InitializeComponent();
+            this.Font = new Font("Arial", 9, FontStyle.Bold);
+            this.ForeColor = Color.DarkSlateGray;
             dateTabel = Tabelprimit;
         }
         private void btnGrafic_Click(object sender, EventArgs e)

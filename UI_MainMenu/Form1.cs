@@ -31,20 +31,23 @@ namespace UI_MainMenu
         public Form1()
         {
             InitializeComponent();
+            TipAdauga.SetToolTip(btnAdauga, "Buton pentru adaugare in fisierul txt si tabelul afisat");
+            TipRefresh.SetToolTip(btnRefresh, "Buton pentru refresh al tabelului afisat in caz de desincronizare");
+            TipCautare.SetToolTip(btnCautare, "Buton pentru initializare proces de cautare in tabelul afisat");
+            TipGrafic.SetToolTip(btnGrafic, "Buton pentru afisarea unei noi ferestre pentru afisare grafic pe o perioada de tip a pretului unei masini");
             Masina[] masini = adminMasini.GetMasini(out int nrMasini);
 
             //setare proprietati
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(0, 100);
+            this.Location = new Point(0, 0);
             this.Font = new Font("Arial", 9, FontStyle.Bold);
-            this.ForeColor = Color.LimeGreen;
+            this.ForeColor = Color.DarkSlateGray;
             this.Text = "Targ masini";
-            //initializare coloane tabel de date
             initializare_coloane();
 
 
         }
-        private void initializare_coloane()
+        private void initializare_coloane() //initializare coloane tabel de date
         {
             TabelDate = new DataTable();
             TabelDate.Columns.Add("ID", typeof(int));
@@ -291,16 +294,16 @@ namespace UI_MainMenu
             btnInapoi.Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form2 frm2=new Form2(TabelDate);
-            frm2.ShowDialog();
-                
-        }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
             verificare_duplicare_vanzator_cumparator(dateMasini);
+        }
+
+        private void btnGrafic_Click(object sender, EventArgs e)
+        {
+            Form2 frm2 = new Form2(TabelDate);
+            frm2.ShowDialog();
         }
     }
 }
